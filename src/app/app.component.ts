@@ -28,7 +28,9 @@ export class AppComponent {
   }
 
   onFunctionClick(val: string) {
-    if (this.funcT == 'NoFunction') {
+    if (val == 'c') {
+      this.clearAll();
+    } else if (this.funcT == 'NoFunction') {
       this.firstNumber = this.calcValue;
       this.calcValue = 0;
       this.calNumber = 'noValue';
@@ -43,27 +45,22 @@ export class AppComponent {
     if (this.funcT == '+') {
       const total = this.firstNumber + this.secondNumber;
       this.totalAssignValues(total, val);
-      if (val == '=') this.onEqualPress();
     }
     if (this.funcT == '-') {
       const total = this.firstNumber - this.secondNumber;
       this.totalAssignValues(total, val);
-      if (val == '=') this.onEqualPress();
     }
     if (this.funcT == '*') {
       const total = this.firstNumber * this.secondNumber;
       this.totalAssignValues(total, val);
-      if (val == '=') this.onEqualPress();
     }
     if (this.funcT == '/') {
       const total = this.firstNumber / this.secondNumber;
       this.totalAssignValues(total, val);
-      if (val == '=') this.onEqualPress();
     }
     if (this.funcT == '%') {
       const total = this.firstNumber % this.secondNumber;
       this.totalAssignValues(total, val);
-      if (val == '=') this.onEqualPress();
     }
   }
 
@@ -73,11 +70,21 @@ export class AppComponent {
     this.secondNumber = 0;
     this.calNumber = 'noValue';
     this.funcT = val;
+    if (val == '=') this.onEqualPress();
   }
 
   onEqualPress() {
     this.firstNumber = 0;
     this.secondNumber = 0;
+    this.funcT = 'NoFunction';
+    this.calNumber = 'noValue';
+  }
+
+  clearAll() {
+    // this.onEqualPress();
+    this.firstNumber = 0;
+    this.secondNumber = 0;
+    this.calcValue = 0;
     this.funcT = 'NoFunction';
     this.calNumber = 'noValue';
   }

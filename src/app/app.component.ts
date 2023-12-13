@@ -81,11 +81,7 @@ export class AppComponent {
   }
 
   clearAll() {
-    // this.onEqualPress();
-    this.firstNumber = 0;
-    this.secondNumber = 0;
+    this.onEqualPress();
     this.calcValue = 0;
-    this.funcT = 'NoFunction';
-    this.calNumber = 'noValue';
   }
 }
